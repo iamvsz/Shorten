@@ -1,0 +1,13 @@
+<div class="container">
+    <h2>Shorten Your Link</h2>
+    <form (submit)="onSubmit(); $event.preventDefault()">
+        <input type="url" [(ngModel)]="longUrl" name="url" required placeholder="Enter long URL" />
+        <button type="submit" [disabled]="loading">Shorten</button>
+    </form>
+
+    <div *ngIf="shortUrl">
+        <p><strong>Shortened URL:</strong> <a [href]="shortUrl" target="_blank">{{ shortUrl }}</a></p>
+    </div>
+
+    <p *ngIf="error" class="error">{{ error }}</p>
+</div>
